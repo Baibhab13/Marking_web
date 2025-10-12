@@ -14,7 +14,8 @@ connectDB();
 // ✅ CORS configuration
 const allowedOrigins = [
   'http://localhost:5173',                // Local frontend
-  'https://marking-client.vercel.app'     // Deployed frontend
+  'https://marking-client.vercel.app' ,
+  'https://jury-one.vercel.app'
 ];
 
 app.use(cors({
