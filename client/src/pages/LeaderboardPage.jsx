@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { marksAPI, exportAPI } from '../utils/api';
 import LeaderboardTable from '../components/LeaderboardTable';
+import { GiTrophy } from "react-icons/gi";
+import { IoMdRefreshCircle } from "react-icons/io";
 
 const LeaderboardPage = () => {
   const [leaderboardData, setLeaderboardData] = useState({ leaderboard: [], juries: [] });
@@ -10,7 +12,7 @@ const LeaderboardPage = () => {
 
   useEffect(() => {
     fetchLeaderboard();
-    
+
     // Auto-refresh every 30 seconds
     const interval = setInterval(fetchLeaderboard, 30000);
     return () => clearInterval(interval);
@@ -70,14 +72,17 @@ const LeaderboardPage = () => {
         <div className="p-6 border-b border-gray-200">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-800 mb-2">
-                🏆 Competition Leaderboard
-              </h1>
+              <div className="flex items-center gap-2 mb-2">
+                <GiTrophy className="text-4xl text-yellow-500" />
+                <h1 className="text-3xl font-bold text-gray-800">
+                  Competition Leaderboard
+                </h1>
+              </div>
               <p className="text-gray-600">
                 Real-time rankings based on jury evaluations
               </p>
             </div>
-            
+
             <div className="flex items-center space-x-3 mt-4 md:mt-0">
               <button
                 onClick={handleRefresh}
@@ -93,7 +98,7 @@ const LeaderboardPage = () => {
                   '🔄 Refresh'
                 )}
               </button>
-              
+
               <button
                 onClick={handleExportExcel}
                 className="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200 ease-in-out"
@@ -129,10 +134,9 @@ const LeaderboardPage = () => {
                     {leaderboardData.leaderboard.slice(0, 3).map((team, index) => (
                       <div
                         key={team.teamName}
-                        className={`text-center p-6 rounded-lg border-2 ${
-                          index === 0 ? 'bg-yellow-100 text-yellow-800 border-yellow-200' :
-                          index === 1 ? 'bg-gray-100 text-gray-800 border-gray-200' : 'bg-orange-100 text-orange-800 border-orange-200'
-                        }`}
+                        className={`text-center p-6 rounded-lg border-2 ${index === 0 ? 'bg-yellow-100 text-yellow-800 border-yellow-200' :
+                            index === 1 ? 'bg-gray-100 text-gray-800 border-gray-200' : 'bg-orange-100 text-orange-800 border-orange-200'
+                          }`}
                       >
                         <div className="text-4xl mb-2">
                           {index === 0 ? '🥇' : index === 1 ? '🥈' : '🥉'}

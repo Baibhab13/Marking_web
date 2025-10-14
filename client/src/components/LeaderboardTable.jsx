@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 
+
 const LeaderboardTable = ({ leaderboard, juries }) => {
   const getRankIcon = (rank) => {
     switch (rank) {

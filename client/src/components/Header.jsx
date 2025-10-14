@@ -4,8 +4,12 @@ import { configAPI } from '../utils/api';
 import parala from '../assets/Parala_maharaja_engineering_college.jpg';
 import cdd_logo from '../assets/cdd_logo.png';
 import Swal from 'sweetalert2';
+import { FaHome } from "react-icons/fa";
+import { GiTrophy } from "react-icons/gi";
+import { IoBarChart } from "react-icons/io5";
+import { IoSettingsSharp } from "react-icons/io5";
 
-const ADMIN_PASSWORD = 'yourHardcodedPassword'; // Change this to your desired password
+const ADMIN_PASSWORD = 'CDD'; // Change this to your desired password
 
 const Header = () => {
   const location = useLocation();
@@ -35,9 +39,9 @@ const Header = () => {
   };
 
   const navLinks = [
-    { path: '/', label: 'Home', icon: '🏠' },
-    { path: '/leaderboard', label: 'Leaderboard', icon: '🏆' },
-    { path: '/status', label: 'Status', icon: '📊' }
+    { path: '/', label: 'Home', icon: <FaHome /> },
+    { path: '/leaderboard', label: 'Leaderboard', icon: <GiTrophy /> },
+    { path: '/status', label: 'Status', icon: <IoBarChart /> },
     
     // Remove admin from here
   ];
@@ -116,7 +120,7 @@ const handleAdminClick = async (e) => {
           {/* Competition Title */}
           <div className="text-center">
             <h2 className="text-xl md:text-3xl font-bold text-blue-600 mb-1">
-              🏫 {config.competitionName}
+              {config.competitionName}
             </h2>
             <p className="text-sm text-gray-600 font-medium">
               Marking & Leaderboard System
@@ -165,7 +169,7 @@ const handleAdminClick = async (e) => {
                   : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'
               }`}
             >
-              <span className="text-lg">⚙️</span>
+              <span className="text-lg"><IoSettingsSharp /></span>
               <span className="hidden sm:inline">Admin</span>
             </button>
           </div>
