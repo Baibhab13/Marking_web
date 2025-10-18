@@ -3,13 +3,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import Rabindra from "../assets/Rabindra.jpg"; // Your profile image
 // import baibhab from "../assets/baibhab.jpg"; // Removed unused image
 import cdd_logo from '../assets/cdd_logo.png'; // Assuming you have a club logo
+import chhaya from "../assets/chhaya.jpg"; // Your profile image
 
 // The developers array now contains only your single profile
 const developers = [
   {
-    name: "K Rabindra Nath Senapaty",
+    name: "Chhayakanta Dash",
     role: "Lead Developer",
-    img: Rabindra,
+    img: chhaya,
     branch: "Computer Science & Engineering",
     year: "4th Year",
   },
@@ -110,7 +111,7 @@ const Footer = () => {
                 <img
                   src={developer.img}
                   alt={developer.name}
-                  className="w-32 h-32  border-4 border-indigo-600 shadow-lg mb-4"
+                  className="w-32 h-32  border-4 border-indigo-600 shadow-lg mb-4 "
                 />
                 <p className="font-extrabold text-blue-300 text-xl">
                   {developer.name}
